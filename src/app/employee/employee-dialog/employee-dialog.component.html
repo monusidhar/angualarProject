@@ -1,0 +1,31 @@
+<form [formGroup]="empForm" (ngSubmit)="empForm.valid && onSubmitEmp()">
+    <h2 mat-dialog-title> {{action}} employee</h2>
+    <mat-dialog-content class="mat-typography">
+      <mat-form-field appearance="fill" class="mb-10">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="empForm.get('name').invalid">Name should not be empty</mat-error>
+      </mat-form-field>
+      <mat-radio-group formControlName="gender" class="mb-10" required>
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field appearance="fill" class="mb-10">
+        <input matInput placeholder="Email" formControlName="email" required>
+        <mat-error *ngIf="empForm.get('email').invalid">
+                {{getEmailError()}}
+        </mat-error>
+    </mat-form-field>
+      <mat-form-field class="mb-10" appearance="fill">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="dateOfBirth" formControlName="dateOfBirth" required>
+        <mat-error *ngIf="empForm.get('dateOfBirth').invalid">Please enter valid date</mat-error>
+        <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+        <mat-datepicker #dateOfBirth></mat-datepicker>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button [disabled]="empForm.invalid" mat-raised-button type="submit" [mat-dialog-close]="true" color="primary">Add</button>
+    </mat-dialog-actions>
+  </form>

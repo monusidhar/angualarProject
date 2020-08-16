@@ -1,0 +1,11 @@
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+    mat-radio-group{
+    display: inline-block;
+  }
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }

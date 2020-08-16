@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+    text-align: left;
+  }
+  td, th {
+    width: 25%;
+  }
+  td{
+    button:nth-child(1){
+      position: absolute;
+      right: 80px;
+    }
+  }
+  button{
+    margin:10px;
+  }
+  .empdata_outer{
+    margin: 15px;
+    position: relative;
+    text-align: center;
+  }
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+  mat-progress-spinner{
+    position: absolute!important;
+    left: auto;
+    right: auto;
+    display: inline-block;
+    bottom: 0;
+    top: auto;
+  }
